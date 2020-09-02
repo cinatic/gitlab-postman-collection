@@ -1,0 +1,382 @@
+{
+	"info": {
+		"_postman_id": "5eaeae4f-4102-463a-bd07-31f7c13e61db",
+		"name": "Gitlab API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "projects",
+			"item": [
+				{
+					"name": "GET projects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/{{API_VERSION}}/projects",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"{{API_VERSION}}",
+								"projects"
+							]
+						},
+						"description": "Docs: https://docs.gitlab.com/ee/api/projects.html#list-all-projects\n\n<br>\n\n*GET /projects*\n\n<br>\n\n|Parameter|Type|Required|Description|\n|---|---|---|---|\n|archived|boolean|no|Limit by archived status|\n|visibility|string|no|Limit by visibility public, internal, or private|\n|order_by|string|no|Return projects ordered by id, name, path, created_at, updated_at, or last_activity_at fields. repository_size, storage_size, or wiki_size fields are only allowed for admins. Default is created_at|\n|sort|string|no|Return projects sorted in asc or desc order. Default is desc|\n|search|string|no|Return list of projects matching the search criteria|\n|search_namespaces|boolean|no|Include ancestor namespaces when matching search criteria. Default is false|\n|simple|boolean|no|Return only limited fields for each project. This is a no-op without authentication as then only simple fields are returned.|\n|owned|boolean|no|Limit by projects explicitly owned by the current user|\n|membership|boolean|no|Limit by projects that the current user is a member of|\n|starred|boolean|no|Limit by projects starred by the current user|\n|statistics|boolean|no|Include project statistics|\n|with_custom_attributes|boolean|no|Include custom attributes in response (admins only)|\n|with_issues_enabled|boolean|no|Limit by enabled issues feature|\n|with_merge_requests_enabled|boolean|no|Limit by enabled merge requests feature|\n|with_programming_language|string|no|Limit by projects which use the given programming language|\n|wiki_checksum_failed|boolean|no| Limit projects where the wiki checksum calculation has failed (Introduced in GitLab Premium 11.2)|\n|repository_checksum_failed|boolean|no| Limit projects where the repository checksum calculation has failed (Introduced in GitLab Premium 11.2)|\n|min_access_level|integer|no|Limit by current user minimal access level|\n|id_after|integer|no|Limit results to projects with IDs greater than the specified ID|\n|id_before|integer|no|Limit results to projects with IDs less than the specified ID|\n|last_activity_after|datetime|no|Limit results to projects with last_activity after specified time. Format: ISO 8601 YYYY-MM-DDTHH:MM:SSZ|\n|last_activity_before|datetime|no|Limit results to projects with last_activity before specified time. Format: ISO 8601 YYYY-MM-DDTHH:MM:SSZ|\n|repository_storage|string|no|Limit results to projects stored on repository_storage. Available for admins only.|"
+					},
+					"response": []
+				},
+				{
+					"name": "GET projects (only private)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/{{API_VERSION}}/projects?visibility=private",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"{{API_VERSION}}",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "visibility",
+									"value": "private"
+								}
+							]
+						},
+						"description": "Docs: https://docs.gitlab.com/ee/api/projects.html#list-all-projects\n\n<br>\n\n*GET /projects*\n\n<br>\n\n|Parameter|Type|Required|Description|\n|---|---|---|---|\n|archived|boolean|no|Limit by archived status|\n|visibility|string|no|Limit by visibility public, internal, or private|\n|order_by|string|no|Return projects ordered by id, name, path, created_at, updated_at, or last_activity_at fields. repository_size, storage_size, or wiki_size fields are only allowed for admins. Default is created_at|\n|sort|string|no|Return projects sorted in asc or desc order. Default is desc|\n|search|string|no|Return list of projects matching the search criteria|\n|search_namespaces|boolean|no|Include ancestor namespaces when matching search criteria. Default is false|\n|simple|boolean|no|Return only limited fields for each project. This is a no-op without authentication as then only simple fields are returned.|\n|owned|boolean|no|Limit by projects explicitly owned by the current user|\n|membership|boolean|no|Limit by projects that the current user is a member of|\n|starred|boolean|no|Limit by projects starred by the current user|\n|statistics|boolean|no|Include project statistics|\n|with_custom_attributes|boolean|no|Include custom attributes in response (admins only)|\n|with_issues_enabled|boolean|no|Limit by enabled issues feature|\n|with_merge_requests_enabled|boolean|no|Limit by enabled merge requests feature|\n|with_programming_language|string|no|Limit by projects which use the given programming language|\n|wiki_checksum_failed|boolean|no| Limit projects where the wiki checksum calculation has failed (Introduced in GitLab Premium 11.2)|\n|repository_checksum_failed|boolean|no| Limit projects where the repository checksum calculation has failed (Introduced in GitLab Premium 11.2)|\n|min_access_level|integer|no|Limit by current user minimal access level|\n|id_after|integer|no|Limit results to projects with IDs greater than the specified ID|\n|id_before|integer|no|Limit results to projects with IDs less than the specified ID|\n|last_activity_after|datetime|no|Limit results to projects with last_activity after specified time. Format: ISO 8601 YYYY-MM-DDTHH:MM:SSZ|\n|last_activity_before|datetime|no|Limit results to projects with last_activity before specified time. Format: ISO 8601 YYYY-MM-DDTHH:MM:SSZ|\n|repository_storage|string|no|Limit results to projects stored on repository_storage. Available for admins only.|"
+					},
+					"response": []
+				},
+				{
+					"name": "GET projects (only owned by current user)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/{{API_VERSION}}/projects?owned=1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"{{API_VERSION}}",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "owned",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Docs: https://docs.gitlab.com/ee/api/projects.html#list-all-projects\n\n<br>\n\n*GET /projects*\n\n<br>\n\n|Parameter|Type|Required|Description|\n|---|---|---|---|\n|archived|boolean|no|Limit by archived status|\n|visibility|string|no|Limit by visibility public, internal, or private|\n|order_by|string|no|Return projects ordered by id, name, path, created_at, updated_at, or last_activity_at fields. repository_size, storage_size, or wiki_size fields are only allowed for admins. Default is created_at|\n|sort|string|no|Return projects sorted in asc or desc order. Default is desc|\n|search|string|no|Return list of projects matching the search criteria|\n|search_namespaces|boolean|no|Include ancestor namespaces when matching search criteria. Default is false|\n|simple|boolean|no|Return only limited fields for each project. This is a no-op without authentication as then only simple fields are returned.|\n|owned|boolean|no|Limit by projects explicitly owned by the current user|\n|membership|boolean|no|Limit by projects that the current user is a member of|\n|starred|boolean|no|Limit by projects starred by the current user|\n|statistics|boolean|no|Include project statistics|\n|with_custom_attributes|boolean|no|Include custom attributes in response (admins only)|\n|with_issues_enabled|boolean|no|Limit by enabled issues feature|\n|with_merge_requests_enabled|boolean|no|Limit by enabled merge requests feature|\n|with_programming_language|string|no|Limit by projects which use the given programming language|\n|wiki_checksum_failed|boolean|no| Limit projects where the wiki checksum calculation has failed (Introduced in GitLab Premium 11.2)|\n|repository_checksum_failed|boolean|no| Limit projects where the repository checksum calculation has failed (Introduced in GitLab Premium 11.2)|\n|min_access_level|integer|no|Limit by current user minimal access level|\n|id_after|integer|no|Limit results to projects with IDs greater than the specified ID|\n|id_before|integer|no|Limit results to projects with IDs less than the specified ID|\n|last_activity_after|datetime|no|Limit results to projects with last_activity after specified time. Format: ISO 8601 YYYY-MM-DDTHH:MM:SSZ|\n|last_activity_before|datetime|no|Limit results to projects with last_activity before specified time. Format: ISO 8601 YYYY-MM-DDTHH:MM:SSZ|\n|repository_storage|string|no|Limit results to projects stored on repository_storage. Available for admins only.|"
+					},
+					"response": []
+				},
+				{
+					"name": "GET project by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/{{API_VERSION}}/projects/:id",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"{{API_VERSION}}",
+								"projects",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						},
+						"description": "Docs: https://docs.gitlab.com/ee/api/projects.html#list-all-projects\n\n<br>\n\n*GET /projects/:id*\n\n<br>\n\n|Parameter|Type|Required|Description|\n|---|---|---|---|\n|id|integer/string|yes|The ID or URL-encoded path of the project|\n|statistics|boolean|no|Include project statistics|\n|license|boolean|no|Include project license data|\n|with_custom_attributes|boolean|no|Include custom attributes in response (admins only)|"
+					},
+					"response": []
+				}
+			],
+			"description": "https://docs.gitlab.com/ee/api/projects.html",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e6b3a4b7-6873-405d-8561-0f1688a1b0e9",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d6d67e4e-e887-4828-96cc-1d3bdb349de3",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "namespaces",
+			"item": [
+				{
+					"name": "GET namespaces",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/{{API_VERSION}}/namespaces",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"{{API_VERSION}}",
+								"namespaces"
+							]
+						},
+						"description": "https://docs.gitlab.com/ee/api/namespaces.html#list-namespaces\n\n<br>\n\n*GET /namespaces*"
+					},
+					"response": []
+				}
+			],
+			"description": "https://docs.gitlab.com/ee/api/namespaces.html",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "19fbf993-35a3-40aa-a095-5142dbeb0cdb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1268c085-4dbe-43a3-81ec-a08701a8be00",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "pipelines",
+			"item": [
+				{
+					"name": "GET pipelines",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/{{API_VERSION}}/projects/:id/pipelines",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"{{API_VERSION}}",
+								"projects",
+								":id",
+								"pipelines"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						},
+						"description": "Docs: https://docs.gitlab.com/ee/api/pipelines.html#list-project-pipelines\n\n<br>\n\n*GET /projects/:id/pipelines*\n\n<br>\n\n|Parameter|Type|Required|Description|\n|---|---|---|---|\n|id|integer/string|yes|The ID or URL-encoded path of the project owned by the authenticated user|\n|scope|string|no|The scope of pipelines, one of: running, pending, finished, branches, tags|\n|status|string|no|The status of pipelines, one of: created, waiting_for_resource, preparing, pending, running, success, failed, canceled, skipped, manual, scheduled|\n|ref|string|no|The ref of pipelines|\n|sha|string|no|The SHA of pipelines|\n|yaml_errors|boolean|no|Returns pipelines with invalid configurations|\n|name|string|no|The name of the user who triggered pipelines|\n|username|string|no|The username of the user who triggered pipelines|\nvupdated_after|datetime|no|Return pipelines updated after the specified date. Format: ISO 8601 YYYY-MM-DDTHH:MM:SSZ|\n|updated_before|datetime|no|Return pipelines updated before the specified date. Format: ISO 8601 YYYY-MM-DDTHH:MM:SSZ|\n|order_by|string|no|Order pipelines by id, status, ref, updated_at or user_id (default: id)|\n|sort|string|no|Sort pipelines in asc or desc order (default: desc)|"
+					},
+					"response": []
+				}
+			],
+			"description": "https://docs.gitlab.com/ee/api/pipelines.html",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "fea70778-5180-46f2-92e4-1ff896e7ed0b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f8e94b33-c81e-4f1d-ad54-4c55c3f0cf38",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "commits",
+			"item": [
+				{
+					"name": "GET commits",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/{{API_VERSION}}/projects/:id/repository/commits",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"{{API_VERSION}}",
+								"projects",
+								":id",
+								"repository",
+								"commits"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						},
+						"description": "Docs: https://docs.gitlab.com/ee/api/commits.html\n\n<br>\n\n*GET /projects/:id/repository/commits*\n\n<br>\n\n|Parameter|Type|Required|Description|\n|---|---|---|---|\n|id|integer/string|yes|The ID or URL-encoded path of the project owned by the authenticated user|\n|ref_name|string|no|The name of a repository branch, tag or revision range, or if not given the default branch|\n|since|string|no|Only commits after or on this date will be returned in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ|\n|until|string|no|Only commits before or on this date will be returned in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ|\n|path|string|no|The file path|\n|all|boolean|no|Retrieve every commit from the repository|\n|with_stats|boolean|no|Stats about each commit will be added to the response|\n|first_parent|boolean|no|Follow only the first parent commit upon seeing a merge commit|\n|order|string|no|List commits in order. Possible values: default, topo. Defaults to default, the commits are shown in reverse chronological order.|"
+					},
+					"response": []
+				},
+				{
+					"name": "GET commit by sha",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/{{API_VERSION}}/projects/:id/repository/commits/:sha",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"{{API_VERSION}}",
+								"projects",
+								":id",
+								"repository",
+								"commits",
+								":sha"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								},
+								{
+									"key": "sha",
+									"value": ""
+								}
+							]
+						},
+						"description": "Docs: https://docs.gitlab.com/ee/api/commits.html#get-a-single-commit\n\n<br>\n\n*GET /projects/:id/repository/commits/:sha*\n\n<br>\n\n|Parameter|Type|Required|Description|\n|---|---|---|---|\n|id|integer/string|yes|The ID or URL-encoded path of the project owned by the authenticated user|\n|sha|string|yes|The commit hash or name of a repository branch or tag|\n|stats|boolean|no|Include commit stats. Default is true|"
+					},
+					"response": []
+				}
+			],
+			"description": "https://docs.gitlab.com/ee/api/commits.html",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7e8b07b3-1bc7-4cf3-ba0d-204983589a74",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ce980af2-cef1-4551-9cb3-f83380cf8bf5",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{TOKEN}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "PRIVATE-TOKEN",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a943cb6b-7fea-4eaa-9b2f-53e54470374e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7bbadc0c-4702-486c-8601-a02a90d64e70",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "ebe5acc2-e7c6-4089-9162-c69adf323367",
+			"key": "API_URL",
+			"value": "https://gitlab.com/api/"
+		},
+		{
+			"id": "385592b8-fd17-440a-99df-5cb49d6b9186",
+			"key": "API_VERSION",
+			"value": "v4"
+		},
+		{
+			"id": "b690458b-b0ec-400a-a92d-98483c248faa",
+			"key": "TOKEN",
+			"value": ""
+		}
+	],
+	"protocolProfileBehavior": {}
+}
